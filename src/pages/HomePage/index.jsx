@@ -1,18 +1,18 @@
-import './style.css';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import { RoomList } from '../../components/RoomList';
-import { Form } from '../../components/Form';
-import { RoomDetail } from '../../components/RoomDetail';
-import { useState, useEffect } from 'react';
+import "./style.css";
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { RoomList } from "../../components/RoomList";
+import { Form } from "../../components/Form";
+import { RoomDetail } from "../../components/RoomDetail";
+import { useState, useEffect } from "react";
 
-export const HomePage = ({ pokoj, cena, onChoose }) => {
+export const HomePage = ({ name, price, onChoose }) => {
   const [rooms, setRooms] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   useEffect(() => {
     const fetchRooms = async () => {
-      const response = await fetch('http://localhost:4000/api/pokoje');
+      const response = await fetch("http://localhost:4000/api/rooms");
       const data = await response.json();
       setRooms(data.result);
       setSelectedRoom(data.result[4]);
@@ -29,13 +29,14 @@ export const HomePage = ({ pokoj, cena, onChoose }) => {
         <RoomList onChoose={setSelectedRoom} rooms={rooms} />
         <section className="light">
           <div className="container">
+          <h2>Pokoj {name}, {price} Kč na osobu za noc</h2>
             <div className="columns-2">
               <RoomDetail
                 id={selectedRoom.id}
                 img={selectedRoom.img}
-                cena={selectedRoom.cena}
-                pokoj={selectedRoom.pokoj}
-                popis={selectedRoom.popis}
+                price={selectedRoom.price}
+                name={selectedRoom.name}
+                description={selectedRoom.description}
               />
               <Form />
             </div>
