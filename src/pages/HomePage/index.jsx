@@ -6,7 +6,7 @@ import { Form } from "../../components/Form";
 import { RoomDetail } from "../../components/RoomDetail";
 import { useState, useEffect } from "react";
 
-export const HomePage = ({ name, price, onChoose }) => {
+export const HomePage = ({ room, onChoose }) => {
   const [rooms, setRooms] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
 
@@ -32,11 +32,8 @@ export const HomePage = ({ name, price, onChoose }) => {
           <h2>Pokoj {name}, {price} Kč na osobu za noc</h2>
             <div className="columns-2">
               <RoomDetail
-                id={selectedRoom.id}
-                img={selectedRoom.img}
-                price={selectedRoom.price}
-                name={selectedRoom.name}
-                description={selectedRoom.description}
+                room={room}
+                onChoose={selectedRoom}
               />
               <Form />
             </div>

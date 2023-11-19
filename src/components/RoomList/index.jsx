@@ -12,7 +12,7 @@ export const RoomList = ({ rooms, onChoose }) => {
         <div className="cards-row">
           {rooms.map((room) => (
             <Room
-              room={room} onChoose={onChoose}
+              key={id} room={room} onChoose={onChoose}
             />
           ))}
         </div>
