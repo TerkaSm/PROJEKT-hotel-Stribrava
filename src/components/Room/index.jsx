@@ -1,17 +1,17 @@
 import './style.css';
 import { useState } from 'react';
 
-export const Room = ({ id, description, img, name, price, onChoose }) => {
+export const Room = ({ room, onChoose }) => {
   return (
     <div
       onClick={() => {
-        onChoose(name);
+        onChoose(room.name);
       }}
       className="card"
     >
-      <img className="card__image" src={img} />
-      <div className="card__title">{name}</div>
-      <div className="card__body">{price} Kč na osobu</div>
+      <img className="card__image" src={room.img} />
+      <div className="card__title">{room.name}</div>
+      <div className="card__body">{room.price} Kč na osobu</div>
     </div>
   );
 };
