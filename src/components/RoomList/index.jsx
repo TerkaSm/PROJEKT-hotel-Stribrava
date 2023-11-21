@@ -1,5 +1,4 @@
 import './style.css';
-import { useState, useEffect } from 'react';
 import { Room } from '../Room';
 
 export const RoomList = ({ rooms, onChoose }) => {
@@ -12,7 +11,7 @@ export const RoomList = ({ rooms, onChoose }) => {
         <div className="cards-row">
           {rooms.map((room) => (
             <Room
-              room={room} onChoose={onChoose}
+              key={id} room={room} onChoose={onChoose}
             />
           ))}
         </div>

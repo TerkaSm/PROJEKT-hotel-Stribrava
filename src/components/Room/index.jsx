@@ -1,5 +1,4 @@
 import './style.css';
-import { useState } from 'react';
 
 export const Room = ({ room, onChoose }) => {
   return (
