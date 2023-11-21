@@ -11,7 +11,7 @@ export const RoomList = ({ rooms, onChoose }) => {
         <div className="cards-row">
           {rooms.map((room) => (
             <Room
-              key={id} room={room} onChoose={onChoose}
+              key={room.id} img={room.img} room={room.name} price={room.price}
             />
           ))}
         </div>
